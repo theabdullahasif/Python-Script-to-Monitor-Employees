@@ -6,7 +6,7 @@ import time
 import imghdr
 import os
 import pytesseract as tess
-tess.pytesseract.tesseract_cmd = r'C:\Users\fourbrick\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+tess.pytesseract.tesseract_cmd = r'C:\Users\Public\AppData\Local\Programs\Tesseract-OCR\tesseract.exe' #path to tesseract library
 from PIL import Image
 
 from email.mime.text import MIMEText
@@ -21,7 +21,7 @@ name = socket.gethostname()
 time = time.strftime("%H-%M-%S")
 a = name + time
 myScreenshot = pyautogui.screenshot()
-myScreenshot.save(r'C:\Users\fourbrick\Desktop\proj\AKL\read\SS-'+a+'.png')
+myScreenshot.save(r'PATH_TO_DIRECTORY\SS-'+a+'.png')
 
 # the keywords matching part
 img = Image.open('SS-'+a+'.png')
@@ -45,10 +45,10 @@ print(count,'match found')
 
 # the email part
 if count > 0:
-    sender_email = 'dhinpooja69@gmail.com'
-    reciever_email = 'dhinpooja69@gmail.com'
-    password = 'ThinkPad#1234567890'
-    subject = 'Python!'
+    sender_email = 'SENDER_EMAIL'
+    reciever_email = 'RECIEVER_EMAIL'
+    password = 'EMAIL_PASSWORD'
+    subject = 'Your script has detected a Keyword, so here is the Screenshot!'
 
     msg = MIMEMultipart()
     msg['From'] = sender_email
@@ -79,7 +79,7 @@ if count > 0:
         server.sendmail(sender_email, reciever_email, text)
         print('Email sent')
     except Exception as e:
-        print(f'Oh no! Something bad happenedf!\n{e}')
+        print(f'Oh no! Something bad happened!\n{e}')
     finally:
         print('Closing the server...')
         server.quit()   #quitting the server after sending image
@@ -88,4 +88,4 @@ if count > 0:
         attachment.close()
 
         # removing the Screenshot from User's System
-        os.remove(r'C:\Users\fourbrick\Desktop\proj\AKL\read\SS-'+a+'.png')
+        os.remove(r'PATH_TO_DIRECTORY\SS-'+a+'.png')
